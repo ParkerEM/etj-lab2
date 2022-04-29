@@ -10,13 +10,14 @@ export class LocationFromIP extends LitElement {
   constructor() {
     super();
     this.UserIpInstance = new UserIP();
-    this.locationEndpoint = 'https://freegeoip.app/json/';
+    this.locationEndpoint = 'https://freegeoip.live/json/';
     this.long = this.getGEOIPData.longitude;
     this.lat = this.getGEOIPData.latitude;
     this.state = '';
     this.city = '';
   }
 
+  // declare variables
   static get properties() {
     return {
       locationEndpoint: {},
@@ -37,7 +38,7 @@ export class LocationFromIP extends LitElement {
   async getGEOIPData() {
     const IPClass = new UserIP();
     const userIPData = await IPClass.updateUserIP();
-    return fetch(this.locationEndpoint + userIPData.ip)
+    return fetch(`${this.locationEndpoint}${userIPData.ip}`)
       .then(resp => {
         if (resp.ok) {
           return resp.json();
@@ -49,6 +50,7 @@ export class LocationFromIP extends LitElement {
         this.lat = data.latitude;
         this.state = data.region_name;
         this.city = data.city;
+        this.render();
         return data;
       });
   }
@@ -70,7 +72,7 @@ export class LocationFromIP extends LitElement {
   render() {
     // this function runs every time a properties() declared variable changes
     // this means you can make new variables and then bind them this way if you like
-    const url = `https://maps.google.com/maps?q=${this.long},${this.lat}&t=&z=15&ie=UTF8&iwloc=&output=embed`;
+    const url = `https://maps.google.com/maps?q=${this.lat},${this.long}&t=&z=15&ie=UTF8&iwloc=&output=embed`;
     return html`<iframe title="Where you are" src="${url}"></iframe> `;
   }
 }

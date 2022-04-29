@@ -50,8 +50,11 @@
   </script>
   <h1>Location based on IP address as a map</h1>
   <location-from-ip id="location"></location-from-ip>
-  <input id="long" placeholder="Enter longitude"></input> 
+  <script type="module">
+    import "./src/LocationFromIP.js";
+  </script>
   <input id="lat" placeholder="Enter latitude"></input> 
+  <input id="long" placeholder="Enter longitude"></input> 
   <button id="update">Update Map</button>
   <script type="module">
     import "./src/LocationFromIP.js";
