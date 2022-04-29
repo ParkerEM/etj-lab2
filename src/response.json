@@ -1,0 +1,37 @@
+[
+    {
+        "location": "Westgate 300",
+        "start_time": "2022-04-1T9:00-5:00",
+        "end_time": "2022-04-21T10:15-5:00",
+        "details": "IST 497; Professor Dupak",
+        "order_num": 1
+    },
+    {
+        "location": "Willard 171",
+        "start_time": "2022-04-18T13:25-5:00",
+        "end_time": "2022-04-18T14:15-5:00",
+        "details": "FR 470; Professor Witcher",
+        "order-num": 2
+    },
+    {
+        "location": "Ferguson 210",
+        "start_time": "2022-04-22T10:10-5:00",
+        "end_time": "2022-04-22T11:00-5:00",
+        "details": "ENGL 202C; Professor Pascal",
+        "order_num": 3
+    },
+    {
+        "location": "Huck Life 100",
+        "start_time": "2022-04-20T11:15-5:00",
+        "end_time": "2022-04-20T12:05-5:00",
+        "details": "GEOG 30N; Professor Vanderberg",
+        "order_num": 4
+    },
+    {
+        "location": "Wartik 108",
+        "start_time": "2022-04-14T12:05-5:00",
+        "end_time": "2022-04-14T13:20-5:00",
+        "details": "IST 402; Professor Ollendyke",
+        "order_num": 5
+    }
+]

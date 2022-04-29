@@ -23,7 +23,7 @@ export class UserIP extends LitElement {
     // Java or other Object Oriented Programming Language
     // so for this one, we're storing a reference to the API endpoint
     // so that if it ever changed it would be easier to update
-    this.ipLookUp = 'https://ip-fast.com/api/ip/?format=json&location=True'; // changed from location=False 
+    this.ipLookUp = 'https://ip-fast.com/api/ip/?format=json&location=True'; // changed from location=False
   }
 
   // properties that you wish to use as data in HTML, CSS, and the updated life-cycle
@@ -101,7 +101,7 @@ export class UserIP extends LitElement {
       })
       .then(data => {
         this.ip = data.ip;
-        this.location = data.location; // assign location property 
+        this.location = `${data.city}, ${data.country}`; // assign location property
         return data;
       });
   }
@@ -140,10 +140,12 @@ export class UserIP extends LitElement {
   // this serves very little purpose but at least we're rendering the info
   render() {
     return html` <ul>
-      <li><strong class="ipaddress">IP address:</strong> ${this.ip} --- ${this.location}</li> 
-      <li></li>
-    </ul>`; // also display location 
+      <li>
+        <strong class="ipaddress">IP address:</strong> ${this.ip} ---
+        ${this.location}
+      </li>
+    </ul>`; // also display location
   }
-} 
+}
 
 customElements.define(UserIP.tag, UserIP);

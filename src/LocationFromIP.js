@@ -21,7 +21,7 @@ export class LocationFromIP extends LitElement {
     return {
       locationEndpoint: {},
       long: {},
-      lat: {},      
+      lat: {},
       state: {},
       city: {},
     };
@@ -45,7 +45,6 @@ export class LocationFromIP extends LitElement {
         return false;
       })
       .then(data => {
-        console.log(data);
         this.long = data.longitude;
         this.lat = data.latitude;
         this.state = data.region_name;
