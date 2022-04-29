@@ -11,12 +11,20 @@ export class LocationFromIP extends LitElement {
     super();
     this.UserIpInstance = new UserIP();
     this.locationEndpoint = 'https://freegeoip.app/json/';
-    this.long = 10.305385;
-    this.lat = 77.923029;
+    this.long = this.getGEOIPData.longitude;
+    this.lat = this.getGEOIPData.latitude;
+    this.state = '';
+    this.city = '';
   }
 
   static get properties() {
-    return {};
+    return {
+      locationEndpoint: {},
+      long: {},
+      lat: {},      
+      state: {},
+      city: {},
+    };
   }
 
   firstUpdated(changedProperties) {
@@ -38,6 +46,10 @@ export class LocationFromIP extends LitElement {
       })
       .then(data => {
         console.log(data);
+        this.long = data.longitude;
+        this.lat = data.latitude;
+        this.state = data.region_name;
+        this.city = data.city;
         return data;
       });
   }
